@@ -1,21 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
+import Profile from './src/screens/profile';
 import { StyleSheet, Text, View, Button, Alert } from 'react-native';
+import { useFonts } from 'expo-font';
 
 export default function App() {
+  const [fontsLoaded, fontError] = useFonts({
+    'Manrope-Regular': require('./assets/fonts/Manrope-Regular.ttf'),
+  });
+
+  if (!fontsLoaded && !fontError) {
+    return null;
+  }
+  console.log(fontsLoaded);
   return (
-    <View style={styles.container}>
-      <Text>This is Kevin's test app!</Text>
-      <Button title="More info" onPress={() => Alert.alert("This is an alert!")} />
-      <StatusBar style="auto" />
+    <View>
+      <Profile user={{name: "Justin Koerner", fact: "nature"}} />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
