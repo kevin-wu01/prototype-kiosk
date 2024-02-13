@@ -14,7 +14,7 @@ export default function App() {
   console.log(fontsLoaded);
   return (
     <View>
-      <Profile user={{name: "Justin Koerner", fact: "nature"}} />
+      <Profile user={{name: "Kevin Wu", fact: "nature"}} />
     </View>
   );
 }
